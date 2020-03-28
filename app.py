@@ -5,10 +5,11 @@ from flask_migrate import Migrate
 
 app = Flask(__name__)
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
-app.config["SQLALCHEMY_DATABASE_URI"] = "<dialect>://<username>@<host>:<port>/<database>"
+app.config["SQLALCHEMY_DATABASE_URI"] = "postgresql://mucahit@localhost:5432/todoapp"
 db = SQLAlchemy(app)
 
 migrate = Migrate(app, db)
+
 
 class TodoList(db.Model):
     __tablename__ = "todolists"
